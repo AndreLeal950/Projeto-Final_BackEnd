@@ -33,11 +33,19 @@ export const login = async (req, reply) => {
     let user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
+<<<<<<< HEAD
       return reply.status(401).send({ error: "Email ou Senha Invalido" });
     }
 
     if (!(await comparePassword(password, user.password))) {
       return reply.status(401).send({ error: "Email ou Senha Invalido" });
+=======
+      return reply.status(401).send({ error: "Invalid email or password 1" });
+    }
+
+    if (!(await comparePassword(password, user.password))) {
+      return reply.status(401).send({ error: "Invalid email or password 2" });
+>>>>>>> 67cbe55dd7affe263494582e3c9f55f7191fc85f
     }
 
     let { password: pass, ...data } = user;
