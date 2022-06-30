@@ -1,4 +1,5 @@
 import * as AuthController from "../controllers/auth-controller.js";
+import { validateRequest } from "../middleware/auth.js";
 
 export default {
   signup: {
@@ -9,6 +10,8 @@ export default {
   login: {
     method: "POST",
     url: "/login",
+    preHandler: [validateRequest],
     handler: AuthController.login,
   },
+
 };

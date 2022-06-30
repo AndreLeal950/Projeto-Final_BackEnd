@@ -5,7 +5,7 @@ export default {
   getAllUsers: {
     method: "GET",
     url: "/users",
-    // preHandler: [validateRequest],
+    preHandler: [validateRequest],
     handler: UserController.index,
   },
 
